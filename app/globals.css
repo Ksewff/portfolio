@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #0b0f1a;
+  --accent: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background-color: var(--background);
+  color: #e6eaf4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2940;
+  border: 2px solid #0b0f1a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2c3a5c;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid #a5b4fc;
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .panel {
+    @apply border border-white/[0.08] bg-white/[0.02];
+  }
+
+  .panel-hover {
+    @apply transition-colors duration-300 hover:border-accent/40 hover:bg-white/[0.04];
+  }
+
+  .label-mono {
+    @apply font-mono text-[10px] uppercase leading-none tracking-widest text-star-faint;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl leading-tight tracking-tight text-star sm:text-4xl;
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-white/10 bg-space-800 px-3.5 py-2.5 text-sm text-star placeholder:text-star-faint/70 transition-colors focus:border-accent/60 focus:outline-none focus:ring-1 focus:ring-accent/30;
+  }
+
+  .field-label {
+    @apply mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-star-dim;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-deep focus-visible:outline-accent-soft;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 px-5 py-3 text-sm font-medium text-star transition-colors hover:border-accent/60 hover:text-accent-soft;
+  }
+
+  .btn-mini {
+    @apply inline-flex items-center gap-1.5 border border-white/10 px-2.5 py-1.5 font-mono text-[11px] tracking-wide text-star-dim transition-colors hover:border-accent/50 hover:text-star;
+  }
+}
+
+@layer utilities {
+  .text-hero {
+    font-size: clamp(2.9rem, 8vw, 6.6rem);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+  }
+
+  .text-display {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .prose-almanac p {
+    @apply mb-5 text-[15px] leading-8 text-star-dim;
+  }
+
+  .prose-almanac h2 {
+    @apply mb-4 mt-10 font-serif text-2xl text-star;
+  }
+
+  .prose-almanac li {
+    @apply mb-2 text-[15px] leading-7 text-star-dim;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
